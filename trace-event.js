@@ -7,16 +7,6 @@
 
 //var stream = require("stream");
 //var util = require("util");
-// ---- internal support stuff
-
-function evCommon() {
-  var ts = Math.round(performance.now() * 1000 * 1000); // microseconds
-  return {
-    ts,
-    //pid: process.pid,
-    //tid: process.pid // no meaningful tid for node.js
-  };
-}
 
 // ---- Tracer
 
@@ -135,7 +125,9 @@ class Tracer /*extends stream.Readable*/ {
 
   mkEventFunc(ph) {
     return fields => {
-      var ev = evCommon();
+      var start = performance.now();
+      var ts = Math.round(start * 1000 * 1000); // microseconds
+      var ev = {ts};
       ev.ph = ph;
       for (const k of Object.keys(this.fields)) {
         ev[k] = this.fields[k];
