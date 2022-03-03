@@ -1,4 +1,5 @@
-/*
+<script src="../trace-event.js"></script>
+<script>/*
  * A first example showing trace-event usage.
  * We emit begin/end events for a single call to `doSomething()`.
  */
@@ -16,11 +17,8 @@
  * - See examples/object-mode.js for raw event objects.
  * - See examples/child.js for a larger example.
  */
-var evt = new (require("../lib/trace-event")).Tracer();
+var evt = new Tracer();
 
-evt.on("data", function(data) {
-  console.log("EVENT: %j", data);
-});
 
 // Instrument code with evt.{begin|instant|end} calls.
 function doSomething(cb) {
@@ -29,6 +27,7 @@ function doSomething(cb) {
   setTimeout(function() {
     evt.end({ name: "doSomething", id: "1" });
     cb();
+    alert(evt.results())
   }, 1000);
 }
 
@@ -36,3 +35,4 @@ console.log("hi");
 doSomething(function() {
   console.log("bye");
 });
+</script>

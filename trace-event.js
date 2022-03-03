@@ -85,6 +85,10 @@ class Tracer /*extends stream.Readable*/ {
     }
   }
 
+  results() {
+    return this.chunks.join("")
+  }
+
   _read(size) {}
 
   _pushString(ev) {
