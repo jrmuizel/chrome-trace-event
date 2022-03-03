@@ -1,8 +1,8 @@
-node-trace-event: A node library for creating trace event logs of program
+trace-event: A library for creating trace event logs of program
 execution according to [Google's Trace Event
 format](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU).
 These logs can then be visualized with
-[trace-viewer](https://github.com/google/trace-viewer) to grok one's programs.
+[ui.perfetto.dev](https://ui.perfetto.dev/) to grok one's programs.
 
 TODO: quick picture example
 
