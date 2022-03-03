@@ -118,11 +118,11 @@ class Tracer /*extends stream.Readable*/ {
   }
 
   begin(...args) {
-    return this.mkEventFunc("b")(...args);
+    return this.mkEventFunc("B")(...args);
   }
 
   end(...args) {
-    return this.mkEventFunc("e")(...args);
+    return this.mkEventFunc("E")(...args);
   }
 
   completeEvent(...args) {
