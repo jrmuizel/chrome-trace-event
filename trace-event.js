@@ -44,6 +44,12 @@ class Tracer /*extends stream.Readable*/ {
     if (opts.fields) {
       Object.assign(this.fields, opts.fields);
     }
+
+    if (!this.fields.pid) {
+      // Perfetto doesn't need a pid but trace-viewer requires one
+      this.fields.pid = 0
+    }
+
     if (!this.fields.cat) {
       // trace-viewer *requires* `cat`, so let's have a fallback.
       this.fields.cat = "default";
