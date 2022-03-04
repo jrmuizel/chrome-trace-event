@@ -4,6 +4,10 @@ format](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsK
 These logs can then be visualized with
 [ui.perfetto.dev](https://ui.perfetto.dev/) to grok one's programs.
 
+# Current Status
+
+The code is a bit of a mess but I used it successfully with perfetto
+on https://bugzilla.mozilla.org/show_bug.cgi?id=1755006
 
 # Usage
 
