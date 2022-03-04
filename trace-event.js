@@ -115,8 +115,19 @@ class Tracer /*extends stream.Readable*/ {
     return this.mkEventFunc("E")(...args);
   }
 
-  completeEvent(...args) {
-    return this.mkEventFunc("X")(...args);
+  completeEvent(startTime, dict) {
+    var end = performance.now();
+    var ts = Math.round(startTime * 1000 * 1000); // microseconds
+    var ev = {ts};
+    ev.ph = "X"
+    ev.dur = Math.round((end - startTime) * 1000 * 1000);
+    for (const k of Object.keys(this.fields)) {
+      ev[k] = this.fields[k];
+    }
+    for (const k of Object.keys(dict)) {
+      ev[k] = dict[k];
+    }
+    this._push(ev)
   }
 
   instantEvent(...args) {
