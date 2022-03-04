@@ -4,22 +4,13 @@ format](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsK
 These logs can then be visualized with
 [ui.perfetto.dev](https://ui.perfetto.dev/) to grok one's programs.
 
-TODO: quick picture example
-
-# Current Status
-
-Current still scratching my itch. No docs. No tests. Incomplete. Alpha.
-
-# Install
-
-    npm install trace-event
 
 # Usage
 
 TODO
 
 ```javascript
-var trace = new (require("trace-event")).Trace();
+var trace = new Trace();
 trace.begin({ name: "myname", id: "some-id" });
 trace.end({ name: "myname", id: "some-id" });
 ```
